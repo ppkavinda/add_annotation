@@ -1,2 +1,2 @@
 # add_annotation
-add @CreationTimestamp and  @UpdateTimestamp for Hibernate entities
+add @CreationTimestamp and  @UpdateTimestamp for JPA entities
