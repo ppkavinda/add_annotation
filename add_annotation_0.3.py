@@ -14,6 +14,8 @@ def addAnnotation(file):
     UPDATED_IMPORT = 'import org.hibernate.annotations.UpdateTimestamp;\n'
     UPDATED_TIMESTAMP = '@UpdateTimestamp'
 
+    INTEGER_ID = 'Integer id'
+
     file.seek(0)
     lines = file.readlines()
     file.seek(0)
@@ -52,6 +54,10 @@ def addAnnotation(file):
                     lines[i-2] = ""
                 if NOTNULL_ANNOT in lines[i-3] or OPTIONAL_ANNOT in lines[i-3]:
                     lines[i-3] = ""
+
+        if INTEGER_ID in line:
+            lines[i] = line.replace("Integer", "Long")
+
                     
     file.seek(0)
     file.writelines(lines)
